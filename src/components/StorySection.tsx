@@ -43,10 +43,6 @@ export const StorySection: React.FC = () => {
             <span>{invitationData.shlokas.greeting}</span>
           </div>
 
-          <p className="font-devanagari text-base sm:text-lg text-[#faf5ee] leading-relaxed">
-            {t('बप्पा हमारे घर पधारे हैं और इस पावन अवसर पर आपकी उपस्थिति हमारे लिए अत्यंत आनंद, सौभाग्य और आत्मीयता का विषय होगी।', 'Bappa has graced our home with His divine presence, and your presence on this sacred occasion would fill our hearts with immense joy and warmth.')}
-          </p>
-
           <p className="font-devanagari text-sm sm:text-base text-[#e6dcce] mt-3 leading-relaxed">
             {t('आइए, सपरिवार पधारकर बप्पा के दर्शन करें, महाआरती में सम्मिलित हों और इस मंगलमय उत्सव की खुशियों को साझा करें।', 'We warmly invite you and your family to seek Bappa’s blessings, join us for the Maha Aarti, and celebrate this auspicious occasion together with love, devotion, and happiness.')}
           </p>
