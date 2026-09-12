@@ -1,0 +1,178 @@
+.opening-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  isolation: isolate;
+  background: #180608;
+  animation: openingEnter 700ms ease both;
+}
+
+.opening-stage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #180608;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.opening-stage::before {
+  content: '';
+  position: absolute;
+  inset: -7%;
+  z-index: 0;
+  background: #180608;
+  filter: none;
+  opacity: 0.9;
+  transform: scale(1.04);
+  animation: backdropDrift 14s ease-in-out infinite alternate;
+}
+
+.opening-screen::before,
+.opening-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.opening-screen::before {
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(24, 6, 8, 0.2), rgba(24, 6, 8, 0.08) 45%, rgba(24, 6, 8, 0.72)), radial-gradient(circle at 50% 48%, transparent 24%, rgba(24, 6, 8, 0.48) 100%);
+}
+
+.opening-screen::after {
+  z-index: 2;
+  opacity: 0.22;
+  background-image: radial-gradient(rgba(255, 213, 107, 0.32) 1px, transparent 1px);
+  background-size: 5px 5px;
+  mix-blend-mode: soft-light;
+}
+
+.opening-video {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  animation: videoGlow 8s ease-in-out infinite alternate;
+}
+
+.opening-overlay {
+  position: absolute;
+  z-index: 3;
+  width: min(72vw, 620px);
+  height: min(72vw, 620px);
+  border-radius: 50%;
+  background: rgba(255, 180, 42, 0.14);
+  filter: blur(55px);
+  pointer-events: none;
+  animation: goldenPulse 3.8s ease-in-out infinite;
+}
+
+.image-button {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: clamp(28px, 8vh, 76px);
+  width: min(58vw, 650px);
+  min-height: 64px;
+  padding: 16px 28px;
+  transform: translateX(-50%);
+  border: 2px solid #ffd76a;
+  border-radius: 999px;
+  color: #fff4cc;
+  background: linear-gradient(180deg, rgba(157, 27, 15, 0.98), rgba(67, 5, 8, 0.98));
+  box-shadow: 0 0 0 4px rgba(255, 215, 106, 0.18), 0 0 28px rgba(255, 166, 25, 0.72), 0 12px 32px rgba(0, 0, 0, 0.45);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(15px, 2.1vw, 23px);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 220ms ease, background 220ms ease, box-shadow 220ms ease;
+  animation: hitAreaPulse 2.4s ease-in-out infinite;
+}
+
+.image-button span {
+  position: relative;
+  z-index: 1;
+}
+
+.image-button::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(255, 232, 147, 0.75);
+  border-radius: inherit;
+  pointer-events: none;
+  transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.image-button:hover,
+.image-button:focus-visible {
+  transform: translateX(-50%) scale(1.03);
+  background: linear-gradient(180deg, rgba(184, 38, 19, 0.99), rgba(84, 6, 8, 0.99));
+}
+
+.image-button:hover::before,
+.image-button:focus-visible::before {
+  box-shadow: 0 0 22px rgba(255, 193, 55, 0.8);
+}
+
+.image-button:active {
+  transform: translateX(-50%) scale(0.97);
+}
+
+.image-button:focus-visible {
+  outline: 3px solid #fff4cc;
+  outline-offset: 7px;
+}
+
+@keyframes openingEnter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes videoGlow {
+  from { filter: brightness(0.92) saturate(1); }
+  to { filter: brightness(1.06) saturate(1.1); }
+}
+
+@keyframes backdropDrift {
+  from { transform: scale(1.02) translate3d(-1%, 0, 0); }
+  to { transform: scale(1.06) translate3d(1%, -1%, 0); }
+}
+
+@keyframes goldenPulse {
+  0%, 100% { opacity: 0.45; transform: scale(0.92); }
+  50% { opacity: 0.82; transform: scale(1.08); }
+}
+
+@keyframes hitAreaPulse {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(255, 193, 55, 0)); }
+  50% { filter: drop-shadow(0 0 12px rgba(255, 193, 55, 0.35)); }
+}
+
+@media (max-width: 600px) {
+  .opening-video { object-position: center; }
+  .image-button { bottom: 7vh; width: 82vw; min-height: 58px; padding: 14px 16px; font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .opening-screen,
+  .opening-stage::before,
+  .opening-video,
+  .opening-overlay,
+  .image-button { animation: none; }
+}
