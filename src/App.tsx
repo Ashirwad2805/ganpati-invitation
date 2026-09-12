@@ -8,7 +8,6 @@ import { ScheduleTimeline } from './components/ScheduleTimeline';
 import { VenueDetails } from './components/VenueDetails';
 import { ClosingBlessing } from './components/ClosingBlessing';
 import { BottomDock } from './components/BottomDock';
-import { RsvpModal } from './components/RsvpModal';
 import { Toast } from './components/Toast';
 import { invitationData } from './config/invitation';
 import { sacredAudio } from './utils/audio';
@@ -16,7 +15,6 @@ import { LanguageProvider, useLanguage } from './config/language';
 
 function InvitationApp() {
   const { language, setLanguage, t } = useLanguage();
-  const [isRsvpOpen, setIsRsvpOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [flowerCount, setFlowerCount] = useState<number>(0);
   const [diyaCount, setDiyaCount] = useState<number>(0);
@@ -33,19 +31,19 @@ function InvitationApp() {
   const handleOfferFlower = () => {
     setFlowerCount((prev) => prev + 1);
     sacredAudio.playFlowerChime();
-    showToast('🌸 Flowers offered at Bappa’s feet!');
+    showToast('🌸 Flowers have been offered at Bappa’s feet!');
   };
 
   const handleLightDiya = () => {
     setIsDiyaLit(true);
     setDiyaCount((prev) => prev + 1);
     sacredAudio.playSingingBowl();
-    showToast('🪔 Diya lit for Bappa’s maha aarti!');
+    showToast('🪔 A diya has been lit for Bappa’s Maha Aarti!');
   };
 
   const handleRingBell = () => {
     sacredAudio.playTempleBell();
-    showToast('🔔 Auspicious temple bells are ringing!');
+    showToast('🔔 The auspicious temple bells are ringing!');
   };
 
   const handleScrollTo = (selector: string) => {
@@ -84,31 +82,31 @@ function InvitationApp() {
     }
   };
 
-  const handleCallHost = () => {
-    if (invitationData.phoneContact) {
-      window.location.href = `tel:${invitationData.phoneContact.replace(/\s+/g, '')}`;
+  const handleCallHost = (number: string) => {
+    if (number) {
+      window.location.href = `tel:${number.replace(/[^+\d]/g, '')}`;
     } else {
-      showToast('Please contact us on WhatsApp');
+      showToast('Please contact us via WhatsApp.');
     }
   };
 
   const handleAddToCalendar = () => {
     const title = encodeURIComponent(`Ganeshotsav Darshan & Maha Aarti — ${invitationData.hostName}`);
     const details = encodeURIComponent(
-      `Bappa has arrived at our home. You and your family are warmly invited for darshan, maha aarti, and maha prasad.\nVenue: ${invitationData.venueName}\nAddress: ${invitationData.venueAddress}`
+      `Bappa has arrived at our home. You and your family are warmly invited for Darshan, Maha Aarti, and Maha Prasad.\nVenue: ${invitationData.venueName}\nAddress: ${invitationData.venueAddress}`
     );
     const location = encodeURIComponent(`${invitationData.venueName}, ${invitationData.venueAddress}`);
     const dates = '20260914T043000Z/20260914T163000Z';
     const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${dates}`;
 
     window.open(gcalUrl, '_blank', 'noopener,noreferrer');
-    showToast('📅 Google Calendar link opened');
+    showToast('📅 The Google Calendar link has been opened.');
   };
 
   const handleShare = async () => {
     const shareData = {
       title: 'Ganpati Bappa Morya | Ganeshotsav Invitation',
-      text: 'Bappa has arrived at our home... with love and devotion, we warmly invite you and your family for darshan. 🙏🌺',
+      text: 'Bappa has arrived at our home. With love and devotion, we warmly invite you and your family for Darshan. 🙏🌺',
       url: window.location.href,
     };
 
@@ -121,7 +119,7 @@ function InvitationApp() {
       try {
         if (navigator.clipboard) {
           await navigator.clipboard.writeText(window.location.href);
-          showToast('📤 Invitation link copied!');
+          showToast('📤 The invitation link has been copied!');
         }
       } catch {
         showToast(`Link: ${window.location.href}`);
@@ -130,20 +128,19 @@ function InvitationApp() {
   };
 
   return (
-    <div className="invitation-shell min-h-screen bg-[#12070a] text-[#faf5ee] selection:bg-[#f39c12]/30 selection:text-[#ffd56b] overflow-x-hidden font-sans">
+    <div className="invitation-shell animate-mainReveal min-h-screen bg-[#12070a] text-[#faf5ee] selection:bg-[#f39c12]/30 selection:text-[#ffd56b] overflow-x-hidden font-sans">
       <div className="invitation-background" aria-hidden="true" />
       <Toast message={toastMessage} onClose={() => setToastMessage(null)} />
-      <Navbar language={language} onLanguageChange={setLanguage} onOpenRsvp={() => setIsRsvpOpen(true)} onRingBell={handleRingBell} />
+      <Navbar language={language} onLanguageChange={setLanguage} onRingBell={handleRingBell} />
       <main className="relative z-[1] pb-20 sm:pb-12">
-        <Hero onScrollToDarshan={() => handleScrollTo('#darshan')} onOpenRsvp={() => setIsRsvpOpen(true)} />
+        <Hero onScrollToDarshan={() => handleScrollTo('#darshan')} />
         <InteractivePuja flowerCount={flowerCount} diyaCount={diyaCount} isDiyaLit={isDiyaLit} onOfferFlower={handleOfferFlower} onLightDiya={handleLightDiya} onRingBell={handleRingBell} />
         <StorySection />
         <ScheduleTimeline onAddToCalendar={handleAddToCalendar} onShare={handleShare} />
         <VenueDetails onCopyAddress={handleCopyAddress} onOpenMap={handleOpenMap} onCallHost={handleCallHost} />
-        <ClosingBlessing onScrollToTop={handleScrollToTop} onOpenRsvp={() => setIsRsvpOpen(true)} />
+        <ClosingBlessing onScrollToTop={handleScrollToTop} />
       </main>
-      <BottomDock onScrollTo={handleScrollTo} onOpenRsvp={() => setIsRsvpOpen(true)} onOfferFlower={handleOfferFlower} />
-      <RsvpModal isOpen={isRsvpOpen} onClose={() => setIsRsvpOpen(false)} />
+      <BottomDock onScrollTo={handleScrollTo} onOfferFlower={handleOfferFlower} />
     </div>
   );
 }

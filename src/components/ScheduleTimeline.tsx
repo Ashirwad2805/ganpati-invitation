@@ -22,7 +22,7 @@ export const ScheduleTimeline: React.FC<ScheduleTimelineProps> = ({
           <span>{t('॥ उत्सव व समय-सारणी ॥', '॥ Celebration Schedule ॥')}</span>
         </div>
         <h2 className="font-devanagari text-3xl sm:text-5xl font-bold text-[#faf5ee] tracking-tight">
-          {t('शुभ मुहूर्त व दिन-सारणी', 'Auspicious timings & schedule')}
+          {t('शुभ मुहूर्त व दिन-सारणी', 'Auspicious Timings and Schedule')}
         </h2>
         <p className="font-devanagari text-sm sm:text-lg text-[#e6dcce] mt-2">
           {language === 'en' ? 'Monday, 14 September 2026 • Ganesh Chaturthi Festival' : `${invitationData.date} • ${invitationData.dateDetail}`}
@@ -63,7 +63,7 @@ export const ScheduleTimeline: React.FC<ScheduleTimelineProps> = ({
                     </h3>
                     {isHighlight && (
                       <span className="px-2 py-0.5 rounded-full bg-[#f39c12]/20 border border-[#f39c12]/40 text-[10px] sm:text-xs font-devanagari text-[#f39c12] font-semibold">
-                        {t('विशेष मुहूर्त', 'Featured time')}
+                        {t('विशेष मुहूर्त', 'Featured Time')}
                       </span>
                     )}
                   </div>
@@ -90,7 +90,7 @@ export const ScheduleTimeline: React.FC<ScheduleTimelineProps> = ({
           className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#2a1217] hover:bg-[#3d1a24] text-[#faf5ee] border border-[#d4af37]/40 font-devanagari text-xs sm:text-sm font-medium transition-all active:scale-95 flex items-center justify-center gap-2 shadow-md cursor-pointer"
         >
           <Calendar className="w-4 h-4 text-[#f39c12]" />
-          <span>{t('कैलेंडर में जोड़ें (Google Calendar)', 'Add to calendar (Google Calendar)')}</span>
+          <span>{t('कैलेंडर में जोड़ें (Google Calendar)', 'Add to Google Calendar')}</span>
         </button>
 
         <button
@@ -98,7 +98,7 @@ export const ScheduleTimeline: React.FC<ScheduleTimelineProps> = ({
           className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#2a1217] hover:bg-[#3d1a24] text-[#faf5ee] border border-[#d4af37]/40 font-devanagari text-xs sm:text-sm font-medium transition-all active:scale-95 flex items-center justify-center gap-2 shadow-md cursor-pointer"
         >
           <Bell className="w-4 h-4 text-[#e2b866]" />
-          <span>{t('निमंत्रण साझा करें', 'Share invitation')}</span>
+          <span>{t('निमंत्रण साझा करें', 'Share Invitation')}</span>
         </button>
       </div>
     </section>

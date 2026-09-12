@@ -36,7 +36,6 @@ export interface SacredMoment {
 export interface InvitationData {
   shlokas: Shlokas;
   hostName: string;
-  familyMembers: string;
   hostSubtext: string;
   date: string;
   dateDetail: string;

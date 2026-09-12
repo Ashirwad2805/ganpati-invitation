@@ -1,16 +1,14 @@
 import React from 'react';
-import { Eye, Flame, MapPin, Send, Flower2 } from 'lucide-react';
+import { Eye, Flame, MapPin, Flower2 } from 'lucide-react';
 import { useLanguage } from '../config/language';
 
 interface BottomDockProps {
   onScrollTo: (selector: string) => void;
-  onOpenRsvp: () => void;
   onOfferFlower: () => void;
 }
 
 export const BottomDock: React.FC<BottomDockProps> = ({
   onScrollTo,
-  onOpenRsvp,
   onOfferFlower,
 }) => {
   const { t } = useLanguage();
@@ -57,15 +55,6 @@ export const BottomDock: React.FC<BottomDockProps> = ({
           <span className="text-[10px] font-devanagari mt-0.5 font-medium">{t('स्थान', 'Venue')}</span>
         </button>
 
-        {/* RSVP Button */}
-        <button
-          onClick={onOpenRsvp}
-          className="flex flex-col items-center justify-center py-1 px-2.5 rounded-full text-[#faf5ee] hover:text-[#f39c12] active:scale-95 transition-all group cursor-pointer"
-          aria-label="Confirm attendance (RSVP)"
-        >
-          <Send className="w-4 h-4 text-[#25d366] group-hover:scale-110 transition-transform" />
-          <span className="text-[10px] font-devanagari mt-0.5 font-medium">{t('न्योता (RSVP)', 'RSVP')}</span>
-        </button>
       </div>
     </div>
   );

@@ -14,10 +14,10 @@ export const DarshanGallery: React.FC<DarshanGalleryProps> = ({ onOfferFlower })
   const [activeFilter, setActiveFilter] = useState<string>('all');
 
   const filters = [
-    { id: 'all', label: t('सभी दर्शन', 'All darshan') },
-    { id: 'garbhagriha', label: t('गर्भगृह व झांकी', 'Sanctum & tableau') },
-    { id: 'mukharvind', label: t('मुखारविंद', 'Divine face') },
-    { id: 'shringar', label: t('शृंगार व दीप', 'Decor & diyas') },
+    { id: 'all', label: t('सभी दर्शन', 'All Darshan') },
+    { id: 'garbhagriha', label: t('गर्भगृह व झांकी', 'Sanctum and Tableau') },
+    { id: 'mukharvind', label: t('मुखारविंद', 'Divine Face') },
+    { id: 'shringar', label: t('शृंगार व दीप', 'Decor and Diyas') },
   ];
 
   const galleryItems = invitationData.darshanGallery;
@@ -56,7 +56,7 @@ export const DarshanGallery: React.FC<DarshanGalleryProps> = ({ onOfferFlower })
           {t('बप्पा का मनोहर रूप', 'Bappa’s beautiful form')}
         </h2>
         <p className="font-devanagari text-sm sm:text-lg text-[#e6dcce] mt-3 leading-relaxed">
-          {t('«पहले बप्पा के दर्शन... फिर सजावट की सुंदरता... फिर उत्सव का वातावरण»', '“First Bappa’s darshan… then the beauty of the decor… then the festive atmosphere”')}
+          {t('«पहले बप्पा के दर्शन... फिर सजावट की सुंदरता... फिर उत्सव का वातावरण»', '“First, Bappa’s darshan; then, the beauty of the decor; and finally, the festive atmosphere.”')}
         </p>
       </div>
 

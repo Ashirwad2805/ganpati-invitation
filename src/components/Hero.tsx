@@ -5,10 +5,9 @@ import { useLanguage } from '../config/language';
 
 interface HeroProps {
   onScrollToDarshan: () => void;
-  onOpenRsvp: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onScrollToDarshan, onOpenRsvp }) => {
+export const Hero: React.FC<HeroProps> = ({ onScrollToDarshan }) => {
   const { language, t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState<{
     days: number;
@@ -75,11 +74,11 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToDarshan, onOpenRsvp }) => 
         </h1>
 
         <p className="mt-4 sm:mt-6 font-devanagari text-lg sm:text-2xl text-[#f5ebd7] font-medium max-w-2xl leading-relaxed">
-          “Bappa has arrived at our home…”
+          “Bappa has graced our home with His divine presence..” 🪔🙏
         </p>
 
         <p className="mt-1 font-devanagari text-sm sm:text-base text-[#e2b866]/90">
-          With love and devotion, you and your family are warmly invited
+          With hearts filled with love and devotion, we warmly invite you and your family to join us in welcoming Bappa and seeking His divine blessings.
         </p>
 
         <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm font-devanagari">
@@ -96,7 +95,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToDarshan, onOpenRsvp }) => 
 
         <div className="mt-6 p-3 sm:p-4 rounded-2xl bg-[#1e0d11]/80 border border-[#d4af37]/30 backdrop-blur-md max-w-md w-full">
           <span className="text-[11px] sm:text-xs font-devanagari text-[#e2b866] block mb-2 font-medium">
-            ⏳ Time until Ganeshotsav darshan:
+            ⏳ Time remaining until Ganeshotsav darshan:
           </span>
           <div className="grid grid-cols-4 gap-2 text-center">
             {[['days', timeLeft.days], ['hours', timeLeft.hours], ['minutes', timeLeft.minutes], ['seconds', timeLeft.seconds]].map(([label, value]) => (
@@ -108,20 +107,10 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToDarshan, onOpenRsvp }) => 
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto px-4">
-          <button onClick={onScrollToDarshan} className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-gradient-to-r from-[#d4af37] via-[#f39c12] to-[#d4af37] text-[#1a0c0e] font-devanagari font-bold text-sm sm:text-base tracking-wide shadow-[0_4px_20px_rgba(243,156,18,0.35)] hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
-            <span>See Bappa</span>
-            <ChevronDown className="w-4 h-4 animate-bounce" />
-          </button>
-
-          <button onClick={onOpenRsvp} className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#241014]/90 hover:bg-[#34171d] text-[#faf5ee] border border-[#d4af37]/40 font-devanagari font-medium text-sm sm:text-base shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
-            <span>Confirm family attendance (RSVP)</span>
-          </button>
-        </div>
       </div>
 
       <button onClick={onScrollToDarshan} aria-label="Scroll down for darshan" className="relative z-10 mt-8 flex flex-col items-center gap-1 text-[#e2b866]/80 hover:text-[#e2b866] transition-colors cursor-pointer group">
-        <span className="text-xs font-devanagari tracking-wider">Scroll for darshan</span>
+        <span className="text-xs font-devanagari tracking-wider">Scroll</span>
         <ChevronDown className="w-5 h-5 animate-bounce text-[#e2b866]" />
       </button>
     </section>

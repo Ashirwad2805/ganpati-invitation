@@ -29,10 +29,10 @@ export const StorySection: React.FC = () => {
         {/* Narrative Flow */}
         <div className="space-y-4 font-devanagari text-lg sm:text-2xl text-[#f5ebd7] leading-relaxed max-w-3xl mx-auto">
           <p className="text-[#e2b866] font-semibold">
-            {t('हर वर्ष की तरह...', 'As every year...')}
+            {t('हर वर्ष की तरह...', 'As we welcome Him every year,')}
           </p>
           <p>
-            {t('इस बार भी हमारे घर सुख, शांति, समृद्धि और मंगल आशीर्वाद लेकर बप्पा पधारे हैं।', 'This year too, Bappa has arrived at our home with happiness, peace, prosperity, and blessings.')}
+            {t('इस बार भी हमारे घर सुख, शांति, समृद्धि और मंगल आशीर्वाद लेकर बप्पा पधारे हैं।', 'Bappa has once again graced our home with His divine presence, filling our hearts with joy, peace, prosperity, and auspicious blessings. 🪔🙏')}
           </p>
         </div>
 
@@ -44,11 +44,15 @@ export const StorySection: React.FC = () => {
           </div>
 
           <p className="font-devanagari text-base sm:text-lg text-[#faf5ee] leading-relaxed">
-            {t('बप्पा हमारे घर पधारे हैं और इस पावन अवसर पर आपकी उपस्थिति हमारे लिए अत्यंत आनंद, सौभाग्य और आत्मीयता का विषय होगी।', 'Bappa has arrived at our home, and your presence on this sacred occasion would bring us immense joy and warmth.')}
+            {t('बप्पा हमारे घर पधारे हैं और इस पावन अवसर पर आपकी उपस्थिति हमारे लिए अत्यंत आनंद, सौभाग्य और आत्मीयता का विषय होगी।', 'Bappa has graced our home with His divine presence, and your presence on this sacred occasion would fill our hearts with immense joy and warmth.')}
           </p>
 
           <p className="font-devanagari text-sm sm:text-base text-[#e6dcce] mt-3 leading-relaxed">
-            {t('आइए, सपरिवार पधारकर बप्पा के दर्शन करें, महाआरती में सम्मिलित हों और इस मंगलमय उत्सव की खुशियों को साझा करें।', 'Come with your family for Bappa’s darshan, join the maha aarti, and share the joy of this auspicious celebration.')}
+            {t('आइए, सपरिवार पधारकर बप्पा के दर्शन करें, महाआरती में सम्मिलित हों और इस मंगलमय उत्सव की खुशियों को साझा करें।', 'We warmly invite you and your family to seek Bappa’s blessings, join us for the Maha Aarti, and celebrate this auspicious occasion together with love, devotion, and happiness.')}
+          </p>
+
+          <p className="font-devanagari text-base sm:text-lg text-[#f39c12] mt-4 font-semibold leading-relaxed">
+            {t('गणपति बाप्पा मोरया! 🪔🙏', 'Ganpati Bappa Morya! 🪔🙏')}
           </p>
         </div>
 
@@ -60,9 +64,6 @@ export const StorySection: React.FC = () => {
           <h3 className="text-2xl sm:text-3xl font-bold text-[#faf5ee] text-transparent bg-clip-text bg-gradient-to-r from-[#ffd56b] via-[#faf5ee] to-[#ffd56b]">
             {t(invitationData.hostName)}
           </h3>
-          <p className="text-sm sm:text-base text-[#e2b866] mt-1">
-            {t(invitationData.familyMembers)}
-          </p>
         </div>
       </div>
     </section>

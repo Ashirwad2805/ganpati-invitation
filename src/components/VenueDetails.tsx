@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MapPin, Navigation, Copy, Sparkles, Phone, Compass, Info } from 'lucide-react';
 import { invitationData } from '../config/invitation';
 import { useLanguage } from '../config/language';
@@ -6,7 +6,7 @@ import { useLanguage } from '../config/language';
 interface VenueDetailsProps {
   onCopyAddress: () => void;
   onOpenMap: () => void;
-  onCallHost: () => void;
+  onCallHost: (number: string) => void;
 }
 
 export const VenueDetails: React.FC<VenueDetailsProps> = ({
@@ -15,6 +15,7 @@ export const VenueDetails: React.FC<VenueDetailsProps> = ({
   onCallHost,
 }) => {
   const { t } = useLanguage();
+  const [showHostNumbers, setShowHostNumbers] = useState(false);
   const hostNumbers = invitationData.phoneContact?.split('/').map((number) => number.trim()) ?? [];
 
   return (
@@ -29,7 +30,7 @@ export const VenueDetails: React.FC<VenueDetailsProps> = ({
           {t('हम आपका इंतज़ार करेंगे', 'We look forward to welcoming you')}
         </h2>
         <p className="font-devanagari text-sm sm:text-lg text-[#e6dcce] mt-2">
-          {t('हमारे घर तक सुगमता से पहुंचने के लिए मार्ग एवं विवरण', 'Directions and details to reach our home')}
+          {t('हमारे घर तक सुगमता से पहुंचने के लिए मार्ग एवं विवरण', 'Directions and details for reaching our home')}
         </p>
       </div>
 
@@ -70,7 +71,7 @@ export const VenueDetails: React.FC<VenueDetailsProps> = ({
             <div className="flex items-start gap-3 text-xs font-devanagari text-[#a89e92]">
               <Info className="w-4 h-4 text-[#e2b866] shrink-0 mt-0.5" />
               <p>
-                {t('अतिथियों के लिए सोसाइटी परिसर में सुगम वाहन पार्किंग की व्यवस्था उपलब्ध है।', 'Convenient parking is available for guests within the society premises.')}
+                {t('अतिथियों के लिए सोसाइटी परिसर में सुगम वाहन पार्किंग की व्यवस्था उपलब्ध है।', 'Convenient parking is available for guests within the society complex.')}
               </p>
             </div>
           </div>
@@ -101,22 +102,27 @@ export const VenueDetails: React.FC<VenueDetailsProps> = ({
 
             {/* Call Host Button */}
             <button
-              onClick={onCallHost}
+              onClick={() => setShowHostNumbers((isVisible) => !isVisible)}
+              aria-expanded={showHostNumbers}
               className="w-full py-3 px-4 rounded-xl bg-[#1f0d11] hover:bg-[#34171d] text-[#faf5ee] border border-[#d4af37]/35 font-devanagari font-medium text-xs sm:text-sm transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
             >
               <Phone className="w-4 h-4 text-[#f39c12]" />
               <span>{t('मेजबान से संपर्क करें', 'Contact host')}</span>
             </button>
 
-            <div className="mt-1 border-t border-[#d4af37]/20 pt-4">
+            {showHostNumbers && <div className="mt-1 border-t border-[#d4af37]/20 pt-4">
               <p className="mb-2 text-center text-[11px] font-devanagari uppercase tracking-wider text-[#e2b866]">
-                {t('मेजबान के नंबर', 'Host contact numbers')}
+                {t('मेजबान के नंबर', 'Host Contact Numbers')}
               </p>
               <div className="flex flex-col gap-1.5">
                 {hostNumbers.map((number) => (
                   <a
                     key={number}
                     href={`tel:${number.replace(/[^+\d]/g, '')}`}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      onCallHost(number);
+                    }}
                     className="flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm text-[#faf5ee] transition-colors hover:bg-[#34171d] hover:text-[#ffd56b]"
                   >
                     <Phone className="h-3.5 w-3.5 text-[#f39c12]" />
@@ -124,7 +130,7 @@ export const VenueDetails: React.FC<VenueDetailsProps> = ({
                   </a>
                 ))}
               </div>
-            </div>
+            </div>}
           </div>
         </div>
       </div>

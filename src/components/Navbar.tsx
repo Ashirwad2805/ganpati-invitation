@@ -6,11 +6,10 @@ import { Language, useLanguage } from '../config/language';
 interface NavbarProps {
   language: Language;
   onLanguageChange: (language: Language) => void;
-  onOpenRsvp: () => void;
   onRingBell: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ language, onLanguageChange, onOpenRsvp, onRingBell }) => {
+export const Navbar: React.FC<NavbarProps> = ({ language, onLanguageChange, onRingBell }) => {
   const { t } = useLanguage();
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,8 +30,8 @@ export const Navbar: React.FC<NavbarProps> = ({ language, onLanguageChange, onOp
 
   const navLinks = [
     { href: '#story', label: t('पावन आगमन', 'Sacred arrival') },
-    { href: '#schedule', label: t('आरती व समय', 'Aarti & timings') },
-    { href: '#venue', label: t('स्थान व मार्ग', 'Venue & directions') },
+    { href: '#schedule', label: t('आरती व समय', 'Aarti and Timings') },
+    { href: '#venue', label: t('स्थान व मार्ग', 'Venue and Directions') },
   ];
 
   const handleNavClick = (href: string) => {
@@ -66,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({ language, onLanguageChange, onOp
                 Ganeshotsav 2026
               </span>
               <span className="text-[10px] text-[#e2b866]/80 font-devanagari">
-                Yadav's Residence • Invitation
+                Yadav’s Residence • Invitation
               </span>
             </div>
           </a>
@@ -143,14 +142,6 @@ export const Navbar: React.FC<NavbarProps> = ({ language, onLanguageChange, onOp
               )}
             </button>
 
-            {/* RSVP CTA Button (Desktop) */}
-            <button
-              onClick={onOpenRsvp}
-              className="hidden lg:flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#8e2800] to-[#b33900] hover:from-[#a02e00] hover:to-[#c74000] text-[#faf5ee] border border-[#f39c12]/40 text-xs font-devanagari font-medium shadow-md transition-all active:scale-95 cursor-pointer"
-            >
-              <span>{t('सपरिवार न्योता (RSVP)', 'Family RSVP')}</span>
-            </button>
-
             {/* Mobile Menu Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -194,15 +185,6 @@ export const Navbar: React.FC<NavbarProps> = ({ language, onLanguageChange, onOp
           </div>
 
           <div className="space-y-4 pt-6 border-t border-[#d4af37]/20">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenRsvp();
-              }}
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#8e2800] to-[#b33900] text-[#faf5ee] font-devanagari font-semibold text-center border border-[#f39c12]/40 shadow-lg"
-            >
-              {t('सपरिवार उपस्थिति बताएं (RSVP)', 'Confirm family attendance (RSVP)')}
-            </button>
             <p className="text-center text-xs text-[#a89e92] font-devanagari">
               {t('गणपती बाप्पा मोरया • मंगलमूर्ती मोरया', 'Ganpati Bappa Morya • Mangalmurti Morya')}
             </p>

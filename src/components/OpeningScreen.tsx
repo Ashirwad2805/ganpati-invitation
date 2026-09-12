@@ -23,7 +23,7 @@ const OpeningScreen: React.FC<OpeningScreenProps> = ({ onOpen }) => {
         </video>
         <div className="opening-overlay" aria-hidden="true" />
         <button className="image-button" onClick={onOpen} type="button" aria-label="Tap to open invitation">
-          <span>🪔 Tap to Open Invitation 🪔</span>
+          <span>🪔 Tap to Open the Invitation 🪔</span>
         </button>
       </div>
     </section>

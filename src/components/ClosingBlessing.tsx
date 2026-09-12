@@ -1,16 +1,14 @@
 import React from 'react';
-import { ArrowUp, Sparkles, Heart } from 'lucide-react';
+import { ArrowUp, Sparkles } from 'lucide-react';
 import { invitationData } from '../config/invitation';
 import { useLanguage } from '../config/language';
 
 interface ClosingBlessingProps {
   onScrollToTop: () => void;
-  onOpenRsvp: () => void;
 }
 
 export const ClosingBlessing: React.FC<ClosingBlessingProps> = ({
   onScrollToTop,
-  onOpenRsvp,
 }) => {
   const { t } = useLanguage();
 
@@ -54,17 +52,6 @@ export const ClosingBlessing: React.FC<ClosingBlessingProps> = ({
           </p>
         </div>
 
-        {/* RSVP button again in footer */}
-        <div className="pt-2">
-          <button
-            onClick={onOpenRsvp}
-            className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#8e2800] via-[#b33900] to-[#8e2800] text-[#faf5ee] font-devanagari font-bold text-sm sm:text-base border border-[#f39c12]/40 shadow-xl hover:brightness-110 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-2"
-          >
-            <Heart className="w-4 h-4 text-[#f39c12] fill-[#f39c12]" />
-            <span>{t('सपरिवार उपस्थिति बताएं (RSVP)', 'Confirm family attendance (RSVP)')}</span>
-          </button>
-        </div>
-
         {/* Return to Top */}
         <div className="pt-6 flex flex-wrap items-center justify-center gap-3">
           <button
@@ -72,14 +59,14 @@ export const ClosingBlessing: React.FC<ClosingBlessingProps> = ({
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1e0d11] hover:bg-[#2e151b] text-[#e2b866] border border-[#d4af37]/30 text-xs sm:text-sm font-devanagari transition-all active:scale-95 cursor-pointer"
           >
             <ArrowUp className="w-4 h-4" />
-            <span>{t('बप्पा के दर्शन हेतु ऊपर जाएं', 'Back to darshan')}</span>
+            <span>{t('बप्पा के दर्शन हेतु ऊपर जाएं', 'Back to Darshan')}</span>
           </button>
 
         </div>
 
         {/* Host Credits */}
         <div className="pt-10 border-t border-[#d4af37]/15 text-xs text-[#a89e92] font-devanagari">
-          <p>With love, your hosts: {invitationData.hostName} ({invitationData.familyMembers})</p>
+          <p>With love, from your hosts: {invitationData.hostName}</p>
           <p className="text-[11px] text-[#7a7066] mt-1">Ganeshotsav • Ganesh Chaturthi 2026</p>
         </div>
       </div>

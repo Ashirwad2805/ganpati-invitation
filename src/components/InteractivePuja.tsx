@@ -159,9 +159,9 @@ export const InteractivePuja: React.FC<InteractivePujaProps> = ({
               <span>{t('डिजिटल पूजा व दर्शन भाव', 'Digital puja & darshan')}</span>
             </span>
             <div className="flex items-center gap-3 text-xs text-[#faf5ee]/80 font-devanagari">
-              <span>{flowerCount} {t('पुष्प', 'flowers')}</span>
+              <span>{flowerCount} {t('पुष्प', 'Flowers')}</span>
               <span>•</span>
-              <span>{diyaCount} {t('दीप', 'diyas')}</span>
+              <span>{diyaCount} {t('दीप', 'Diyas')}</span>
             </div>
           </div>
 
@@ -181,7 +181,7 @@ export const InteractivePuja: React.FC<InteractivePujaProps> = ({
               <span className="font-devanagari text-xs sm:text-sm font-medium text-[#faf5ee]">
                 {t('पुष्प अर्पण', 'Offer flowers')}
               </span>
-              <span className="text-[10px] text-[#f39c12] mt-0.5">{t('पुष्प वर्षा', 'Flower shower')}</span>
+              <span className="text-[10px] text-[#f39c12] mt-0.5">{t('पुष्प वर्षा', 'Flower Shower')}</span>
             </button>
 
             {/* Light Diya Button */}
@@ -207,7 +207,7 @@ export const InteractivePuja: React.FC<InteractivePujaProps> = ({
               <span className="font-devanagari text-xs sm:text-sm font-medium text-[#faf5ee]">
                 {isDiyaLit ? t('दीप प्रज्वलित', 'Diya lit') : t('दीप जलाएं', 'Light diya')}
               </span>
-              <span className="text-[10px] text-[#e2b866] mt-0.5">{t('महाआरती दीप', 'Maha aarti diya')}</span>
+              <span className="text-[10px] text-[#e2b866] mt-0.5">{t('महाआरती दीप', 'Maha Aarti Diya')}</span>
             </button>
 
             {/* Ring Bell Button */}
@@ -225,7 +225,7 @@ export const InteractivePuja: React.FC<InteractivePujaProps> = ({
               <span className="font-devanagari text-xs sm:text-sm font-medium text-[#faf5ee]">
                 {t('घंटी नाद', 'Ring bell')}
               </span>
-              <span className="text-[10px] text-[#e2b866] mt-0.5">{t('शुभ ध्वनि', 'Auspicious sound')}</span>
+              <span className="text-[10px] text-[#e2b866] mt-0.5">{t('शुभ ध्वनि', 'Auspicious Sound')}</span>
             </button>
           </div>
         </div>

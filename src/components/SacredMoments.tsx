@@ -20,10 +20,10 @@ export const SacredMoments: React.FC = () => {
           <span>{t('॥ पावन क्षण ॥', '॥ Sacred moments ॥')}</span>
         </div>
         <h2 className="font-devanagari text-3xl sm:text-5xl font-bold text-[#faf5ee] tracking-tight">
-          {t('उत्सव के अनमोल पल', 'Precious moments of celebration')}
+          {t('उत्सव के अनमोल पल', 'Precious Moments of Celebration')}
         </h2>
         <p className="font-devanagari text-sm sm:text-lg text-[#e6dcce] mt-2">
-          {t('घर के उत्सव की छोटी-छोटी सुंदर यादें जो मन को तृप्त कर देती हैं', 'Beautiful little memories from our home celebration')}
+          {t('घर के उत्सव की छोटी-छोटी सुंदर यादें जो मन को तृप्त कर देती हैं', 'Beautiful little memories from our home celebration.')}
         </p>
       </div>
 
@@ -69,7 +69,7 @@ export const SacredMoments: React.FC = () => {
 
               <div className="mt-6 pt-4 border-t border-[#d4af37]/20 flex items-center justify-between text-xs font-devanagari text-[#e2b866]">
                 <span>{t('गृह गणेशोत्सव', 'Home Ganeshotsav')}</span>
-                <span>• Yadav's Residence</span>
+                <span>• Yadav’s Residence</span>
               </div>
             </div>
           </article>
