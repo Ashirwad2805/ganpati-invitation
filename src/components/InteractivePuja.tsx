@@ -154,10 +154,6 @@ export const InteractivePuja: React.FC<InteractivePujaProps> = ({
           />
 
           <div className="flex items-center justify-between gap-2 pb-3 border-b border-[#d4af37]/20 text-xs sm:text-sm font-devanagari text-[#e2b866]">
-            <span className="flex items-center gap-1.5 font-medium">
-              <span>🪔</span>
-              <span>{t('डिजिटल पूजा व दर्शन भाव', 'Digital puja & darshan')}</span>
-            </span>
             <div className="flex items-center gap-3 text-xs text-[#faf5ee]/80 font-devanagari">
               <span>{flowerCount} {t('पुष्प', 'Flowers')}</span>
               <span>•</span>
